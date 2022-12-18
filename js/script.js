@@ -34,6 +34,7 @@ class MemoramaGame {
     this.availableImages = [102, 16, 103, 7]
     this.orderForThisRound = []
     this.cards = Array.from(document.querySelectorAll(".board-game figure"))
+    console.log(Array.from(document.querySelectorAll(".board-game figure")));
     this.foundPairs = 0
     this.maxPairNumber = this.availableImages.length
 
@@ -68,6 +69,7 @@ class MemoramaGame {
 
   openCards() {
     console.log('open cards');
+    console.log(this.cards);
     this.cards.forEach(card => card.classList.add('opened'))
 
     setTimeout(() => {
@@ -87,6 +89,7 @@ class MemoramaGame {
     this.cards.forEach(card => {
       card.addEventListener('click', this.flipCard.bind(this))
     });
+    console.log(this.cards);
   }
 
   removeClickEvents() {
@@ -97,7 +100,7 @@ class MemoramaGame {
   flipCard(event) {
     console.log('flip card');
     const clickedCard = event.target
-
+    console.log(clickedCard.dataset);
     if (this.canPlay && !clickedCard.classList.contains('opened')) {
       clickedCard.classList.add('opened')
 
